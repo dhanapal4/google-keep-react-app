@@ -1,13 +1,19 @@
+import Card from "../UI/Card";
+import classes from "./ShowNotes.module.css";
 
-import Card from '../UI/Card';
-
-const ShowNotes=(props)=>{
-    return(
+const ShowNotes = (props) => {
+  return (
+    <div className={classes.bkg}>
+      {props.notes.map((note) => (
         <Card>
-            <h3>Notes:</h3>
-        {props.notes.map((note)=><h2 key={note.id}>{note.title}</h2>)}
+          <div key={note.id}>
+            <h3>{note.title}</h3>
+            <h6>{note.body}</h6>
+          </div>
         </Card>
-    );
-}
+      ))}
+    </div>
+  );
+};
 
 export default ShowNotes;
