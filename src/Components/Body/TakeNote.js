@@ -10,9 +10,10 @@ const inputOnClick=()=>{
 
 const onChangeHandler=()=>{}
 
-  return <>
+  return <div className={classes.takenote}>
   <input className={classes["input-note"]} type="search" value="Take a note..." onChange={onChangeHandler} onClick={inputOnClick}></input>
-  </>;
+
+  </div>;
 };
 
 export default TakeNote;

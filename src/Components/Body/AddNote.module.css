@@ -1,0 +1,37 @@
+
+
+
+.addnote{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid grey;
+    border-radius: 8px;
+}
+
+.addnote input,input::placeholder{
+    background-color: rgb(32, 32, 32);
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    color: rgb(182, 182, 182);
+    font-weight: bold;
+    outline: none;
+}
+
+.addnote p{
+    display: inline;
+    align-items: center;
+    color: rgb(221, 221, 221);
+    font-weight: bolder;
+    padding: 8px;
+    cursor: pointer;
+    
+}
+
+.buttons{
+    display: flex;
+justify-content: flex-end;
+padding: 8px;
+}

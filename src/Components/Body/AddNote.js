@@ -1,4 +1,5 @@
 import {useRef} from 'react';
+import classes from './AddNote.module.css';
 
 const AddNote=(props)=>{
 
@@ -22,13 +23,17 @@ const AddNote=(props)=>{
             timestamp:Date(Date.now()),
             priority:1
         });
+        
+        props.onClick();
     }
     return(
-    <div>
+    <div className={classes.addnote}>
     <input type="text" placeholder="Title" onChange={onTitleChangeHandler} ref={titleRef}></input>
     <input type="text" placeholder="Take a note..." onChange={onBodyChangeHandler} ref={bodyRef}></input>
-    <button onClick={onAddNoteHandler}>Save</button>
-    <button onClick={onCloseHandler}>Close</button>
+    <div className={classes.buttons}>
+    <p onClick={onAddNoteHandler}>Save</p>
+    <p onClick={onCloseHandler}>Close</p>
+    </div>
     </div>);
 }
 

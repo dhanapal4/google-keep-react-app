@@ -6,7 +6,7 @@ const ShowNotes = (props) => {
     <div className={classes.bkg}>
       {props.notes.map((note) => (
         <Card key={note.id}>
-          <div>
+          <div className={classes.note}>
             <h3>{note.title}</h3>
             <h6>{note.body}</h6>
           </div>

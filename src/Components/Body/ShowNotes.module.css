@@ -1,9 +1,23 @@
 .bkg{
-    background-color: grey;
+    
+  background-color: rgb(32, 32, 32);
+  font-family: 'Open Sans', sans-serif;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 30px;
     /* align-items: center; */
     /* display: inline; */
 }
+
+
+.bkg h6{
+    font-weight: lighter;
+    line-height: 2;
+}
+
+.note{
+    margin-left: 30px;
+}
+

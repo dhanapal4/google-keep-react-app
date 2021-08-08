@@ -1,5 +1,13 @@
 .card{
-    background-color:rgb(206, 166, 166);
+    background-color: rgb(32, 32, 32);
     width: 30%;
-    border:  5px solid grey;
+    border:  1px solid grey;
+    border-radius: 10px;
+    margin: 5px;
+    color: white;
+}
+
+
+.card:hover{
+    background-color: rgb(97, 97, 97);
 }
