@@ -8,8 +8,11 @@ const AddNote=(props)=>{
     const onCloseHandler=()=>{
         props.onClick();
     }
-    const onChangeHandler=(event)=>{
+    const onTitleChangeHandler=(event)=>{
         titleRef.current.value=event.target.value;
+    }
+    const onBodyChangeHandler=(event)=>{
+        bodyRef.current.value=event.target.value;
     }
     const onAddNoteHandler=()=>{
         props.onAdd({
@@ -22,8 +25,8 @@ const AddNote=(props)=>{
     }
     return(
     <div>
-    <input type="text" placeholder="Title" onChange={onChangeHandler} ref={titleRef}></input>
-    <input type="text" placeholder="Take a note..." onChange={onChangeHandler} ref={bodyRef}></input>
+    <input type="text" placeholder="Title" onChange={onTitleChangeHandler} ref={titleRef}></input>
+    <input type="text" placeholder="Take a note..." onChange={onBodyChangeHandler} ref={bodyRef}></input>
     <button onClick={onAddNoteHandler}>Save</button>
     <button onClick={onCloseHandler}>Close</button>
     </div>);
