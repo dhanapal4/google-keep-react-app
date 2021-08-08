@@ -6,7 +6,6 @@ import {useState} from 'react';
 import ShowNotes from './Components/Body/ShowNotes';
 
 
-
 function App() {
   const [notes,setNotes]=useState([
   {

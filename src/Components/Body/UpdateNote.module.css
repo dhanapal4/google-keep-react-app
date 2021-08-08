@@ -1,0 +1,36 @@
+.modal{
+    background-color: rgb(36, 36, 36);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 50px;
+    z-index: 1000;
+    color: grey;
+    width: 30%;
+
+}
+
+.overlay{
+     position: fixed;
+     top:0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     background-color: rgba(0,0,0,.7);
+     z-index: 1000;
+}
+
+.close{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    /* padding: 10px; */
+}
+.close p{
+    padding: 10px;
+}
+.close p:hover{
+background-color: rgb(66, 66, 66);
+cursor: pointer;
+}
