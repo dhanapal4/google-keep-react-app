@@ -2,11 +2,32 @@ import './App.css';
 import TakeNote from './Components/Body/TakeNote';
 import Headers from './Components/Headers/Headers';
 import AddNote from './Components/Body/AddNote';
-import {useState} from 'react';
+import {useState,useReducer} from 'react';
 import ShowNotes from './Components/Body/ShowNotes';
 
 
+const ACTIONS={
+  SHOW:'show',
+  HIDE:'hide'
+};
+
+const reducer=(state,action)=>{
+  switch(action.type){
+    case ACTIONS.SHOW:
+      return {show:true};
+    case ACTIONS.HIDE:
+      return {show:false};
+    default:
+      return state;
+
+  }
+
+}
+
 function App() {
+
+
+
   const [notes,setNotes]=useState([
   {
     id:1,
@@ -16,14 +37,18 @@ function App() {
     priority:1
   }
 ]);
-  const [takeNote, setTakeNote] = useState(false);
+
+  const [state,dispatchFn]=useReducer(reducer,{show:false});
+  // const [takeNote, setTakeNote] = useState(false);
 
 
   const openTakeNote=()=>{
-    setTakeNote(true);
+    // setTakeNote(true);
+    dispatchFn({type:'show'});
   }
   const closeTakeNote=()=>{
-    setTakeNote(false);
+    // setTakeNote(false);
+    dispatchFn({type:'hide'});
   }
   const addNoteHandler=(note)=>{
     setNotes(prevNotes=>{return [...prevNotes,note]});
@@ -32,8 +57,8 @@ function App() {
   return (
     <>
     <Headers />
-    {!takeNote && <TakeNote onClick={openTakeNote}/>}
-    {takeNote && <AddNote onClick={closeTakeNote} onAdd={addNoteHandler}/>}
+    {!state.show && <TakeNote onClick={openTakeNote}/>}
+    {state.show && <AddNote onClick={closeTakeNote} onAdd={addNoteHandler}/>}
     <ShowNotes notes={notes}/>
     </>
   );
