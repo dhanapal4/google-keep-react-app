@@ -3,7 +3,7 @@
     justify-content: flex-start;
     align-items: center;
     margin: 3% auto;
-    border: 1px solid grey;
+    border: 1px solid rgb(161, 161, 161);
     border-radius: 8px;
     width: 70%;
 }
