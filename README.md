@@ -8,6 +8,10 @@ Adding Note UI:-
 
 ![image](https://user-images.githubusercontent.com/35224694/128633307-040b8307-532c-4fdb-a97b-21cc98a15311.png)
 
+ReactJS Concept Used so far:-
+1. React Hook - useState - for managing simple states in the component.
+2. ReactDOM Portal - createPortal - To show Modal/Popup (when we open a exisiting note, it will popup and show the details of the note).
+3. ...
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
