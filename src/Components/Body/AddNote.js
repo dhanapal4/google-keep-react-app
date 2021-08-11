@@ -1,10 +1,15 @@
-import {useRef} from 'react';
+import {useRef,useEffect} from 'react';
 import classes from './AddNote.module.css';
 
 const AddNote=(props)=>{
 
     const titleRef=useRef('Title.');
     const bodyRef=useRef('Take a note...');
+
+    //Focusing on Input field at first renders - component.
+    useEffect(()=>{
+    titleRef.current.focus()
+    },[]);
 
     const onCloseHandler=()=>{
         props.onClick();

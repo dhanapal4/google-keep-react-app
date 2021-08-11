@@ -6,15 +6,23 @@
     border: 1px solid rgb(161, 161, 161);
     border-radius: 8px;
     width: 70%;
+    
 }
-.input-note {
+
+.input-note{
   border: none;
+  border-radius: 8px;
   padding: 12px;
   background-color: rgb(32, 32, 32);
   color: rgb(146, 146, 146);
   font-size: 1rem;
   font-weight: bolder;
   outline: none;
+  transition: transform 500ms ease-in;
+}
+
+.takenote:hover .input-note{
+  transform: translateX(10%);
 }
 
 input[type="search"]::-webkit-search-decoration,
