@@ -6,6 +6,15 @@
     margin: 5px;
     color: white;
 }
+.cardDark{
+
+    background-color: rgb(236, 236, 236);
+    width: 30%;
+    border:  1px solid grey;
+    border-radius: 10px;
+    margin: 5px;
+    color: black;
+}
 
 
 .card:hover{

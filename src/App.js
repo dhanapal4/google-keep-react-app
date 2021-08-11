@@ -4,6 +4,7 @@ import Headers from './Components/Headers/Headers';
 import AddNote from './Components/Body/AddNote';
 import {useReducer} from 'react';
 import ShowNotes from './Components/Body/ShowNotes';
+import ThemeContextProvider from './Contexts/ThemeContext';
 
 
 const ACTIONS={
@@ -53,12 +54,12 @@ function App() {
   }
   
   return (
-    <>
+    <ThemeContextProvider>
     <Headers />
     {!state.show && <TakeNote onClick={openTakeNote}/>}
     {state.show && <AddNote onClick={closeTakeNote} onAdd={addNoteHandler}/>}
     <ShowNotes notes={state['notes']} />
-    </>
+    </ThemeContextProvider>
   );
 }
 
