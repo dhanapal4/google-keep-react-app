@@ -5,6 +5,7 @@ import AddNote from './Components/Body/AddNote';
 import {useReducer} from 'react';
 import ShowNotes from './Components/Body/ShowNotes';
 import ThemeContextProvider from './Contexts/ThemeContext';
+import AuthContextProvider from './Contexts/AuthContext';
 
 
 const ACTIONS={
@@ -42,6 +43,7 @@ function App() {
   ]});
 
 
+
   const openTakeNote=()=>{
     dispatchFn({type:'show'});
   }
@@ -54,12 +56,14 @@ function App() {
   }
   
   return (
+    <AuthContextProvider>
     <ThemeContextProvider>
     <Headers />
     {!state.show && <TakeNote onClick={openTakeNote}/>}
     {state.show && <AddNote onClick={closeTakeNote} onAdd={addNoteHandler}/>}
     <ShowNotes notes={state['notes']} />
     </ThemeContextProvider>
+    </AuthContextProvider>
   );
 }
 

@@ -1,15 +1,21 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import classes from "./Headers.module.css";
 
 const Headers = () => {
   // const onChangeHandler=()=>{}
 
+  const authContext=useContext(AuthContext);
+  console.log(authContext)
+  const {isAuthenticated}=authContext;
+
   return (
     <ThemeContext.Consumer>
       {(context) => {
-        console.log(context);
-        console.log(`${context.isLightTheme}`);
-        console.log(`${context.toggleTheme}`);
+        // console.log(context);
+        // console.log(`${context.isLightTheme}`);
+        // console.log(`${context.toggleTheme}`);
         return (
           <>
             <header className={classes.headers}>
@@ -55,11 +61,11 @@ const Headers = () => {
                   d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"
                 ></path>
               </svg>
-              <img
+              {isAuthenticated&&<img
                 className={classes.photo_avatar}
                 src="https://lh3.googleusercontent.com/ogw/ADea4I4Bl3yNr7AyCZqPmARU5Dh5G9eibJ_GXQtrQiiDNGQ=s32-c-mo"
                 alt="Display pic"
-              ></img>
+              ></img>}
             </header>
             <hr />
           </>
