@@ -3,12 +3,22 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import classes from "./Headers.module.css";
 
-const Headers = () => {
-  // const onChangeHandler=()=>{}
+const Headers = (props) => {
+  const toBeFilteredData = props.data;
+  const onChangeHandler = (event) => {
+    console.log(event.target.value);
+    console.log(props.data);
+    var filter = toBeFilteredData.filter((data) =>
+      data.title.toLowerCase().includes(event.target.value.toLowerCase())
+    );
+    console.log(`Filtered :- ${filter.length}`);
+    // if (filter.length === 0) return null;
+    props.filteredData(filter);
+  };
 
-  const authContext=useContext(AuthContext);
-  console.log(authContext)
-  const {isAuthenticated}=authContext;
+  const authContext = useContext(AuthContext);
+  console.log(authContext);
+  const { isAuthenticated } = authContext;
 
   return (
     <ThemeContext.Consumer>
@@ -48,7 +58,12 @@ const Headers = () => {
                   ></path>
                   <path d="M0,0h24v24H0V0z" fill="none"></path>
                 </svg>
-                <input type="search" name="Search" placeholder="Search"></input>
+                <input
+                  type="search"
+                  name="Search"
+                  placeholder="Search"
+                  onChange={onChangeHandler}
+                ></input>
               </div>
               <svg
                 onClick={context.toggleTheme}
@@ -61,11 +76,13 @@ const Headers = () => {
                   d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"
                 ></path>
               </svg>
-              {isAuthenticated&&<img
-                className={classes.photo_avatar}
-                src="https://lh3.googleusercontent.com/ogw/ADea4I4Bl3yNr7AyCZqPmARU5Dh5G9eibJ_GXQtrQiiDNGQ=s32-c-mo"
-                alt="Display pic"
-              ></img>}
+              {isAuthenticated && (
+                <img
+                  className={classes.photo_avatar}
+                  src="https://lh3.googleusercontent.com/ogw/ADea4I4Bl3yNr7AyCZqPmARU5Dh5G9eibJ_GXQtrQiiDNGQ=s32-c-mo"
+                  alt="Display pic"
+                ></img>
+              )}
             </header>
             <hr />
           </>
