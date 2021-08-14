@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { ThemeContext } from "../../Contexts/ThemeContext";
@@ -76,13 +77,15 @@ const Headers = (props) => {
                   d="M6,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM6,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM12,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM16,6c0,1.1 0.9,2 2,2s2,-0.9 2,-2 -0.9,-2 -2,-2 -2,0.9 -2,2zM12,8c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,14c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2zM18,20c1.1,0 2,-0.9 2,-2s-0.9,-2 -2,-2 -2,0.9 -2,2 0.9,2 2,2z"
                 ></path>
               </svg>
-              {isAuthenticated && (
+              {/* {isAuthenticated && (
                 <img
                   className={classes.photo_avatar}
                   src="https://lh3.googleusercontent.com/ogw/ADea4I4Bl3yNr7AyCZqPmARU5Dh5G9eibJ_GXQtrQiiDNGQ=s32-c-mo"
                   alt="Display pic"
                 ></img>
-              )}
+              )} */}
+              {/* <div className="w-100 text-center mt-2"></div> */}
+              <Button variant="secondary">Log out</Button>
             </header>
             <hr />
           </>
