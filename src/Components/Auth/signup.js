@@ -22,7 +22,7 @@ export default function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/login")
+      history.replace("/")
     } catch {
       setError("Failed to create an account");
     }
@@ -62,8 +62,8 @@ export default function Signup() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2" style={{ fontSize: "1rem" }}>
-        <h6>
-          Already havean account? <Link to="/login">Log In!</Link>{" "}
+        <h6 className="text-white">
+          Already have an account? <Link to="/login">Log In!</Link>{" "}
         </h6>
       </div>
     </>

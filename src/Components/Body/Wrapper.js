@@ -5,23 +5,26 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "../MainPage";
 import Login from "../Auth/Login";
 import App from "../../App";
+import PrivateRoute from "../Auth/PrivateRoute";
+import ForgotPassword from "../Auth/ForgotPassword";
 const Wrapper = () => {
   return (
-      <div>
+      <div style={{backgroundColor:"rgb(32, 32, 32)"}} >
     <Router>
       <FirebaseAuthProvider>
         <Switch>
-            <div style={{backgroundColor:"#555"}} className="">
-          <Route exact path="/" component={App} /></div>
-          <Container
+          <PrivateRoute exact path="/" component={App} />
+          
+          {/* <Container
             className="d-flex align-items-center justify-content-center"
             style={{ minHeight: "100vh" }}
-          >
-            <div className="w-100" style={{ maxWidth: "400px" }}>
+          > */}
+            {/* <div className="w-100" style={{ maxWidth: "400px" }}> */}
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
-            </div>
-          </Container>
+              <Route path="/forgot-password" component={ForgotPassword}/>
+            {/* </div> */}
+          {/* </Container> */}
         </Switch>
       </FirebaseAuthProvider>
     </Router>

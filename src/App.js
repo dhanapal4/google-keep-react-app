@@ -72,6 +72,7 @@ function App() {
   };
 
   return (
+    <div style={{backgroundColor:"rgb(32, 32, 32)"}}>
     <AuthContextProvider>
       <ThemeContextProvider>
         <Headers data={state.notes} filteredData={filteredDataHandler} />
@@ -82,6 +83,7 @@ function App() {
         <ShowNotes notes={state["filteredNotes"]} />
       </ThemeContextProvider>
     </AuthContextProvider>
+    </div>
   );
 }
 

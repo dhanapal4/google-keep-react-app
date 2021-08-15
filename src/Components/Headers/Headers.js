@@ -1,8 +1,11 @@
 import { Button } from "react-bootstrap";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import classes from "./Headers.module.css";
+import { Alert } from "bootstrap";
+import { useFirebaseAuth } from "../../Contexts/FirebaseAuthContext";
+import { Link,useHistory } from "react-router-dom";
 
 const Headers = (props) => {
   const toBeFilteredData = props.data;
@@ -20,6 +23,21 @@ const Headers = (props) => {
   const authContext = useContext(AuthContext);
   console.log(authContext);
   const { isAuthenticated } = authContext;
+  const [error,setError]=useState('');
+  const {currentUser,logout}=useFirebaseAuth();
+  const history=useHistory();
+
+  const handleLogout=async ()=>{
+    setError('');
+
+    try{
+      await logout();
+      history.push('/login');
+    }catch{
+      setError('Failed to log out')
+    }
+
+  }
 
   return (
     <ThemeContext.Consumer>
@@ -85,7 +103,11 @@ const Headers = (props) => {
                 ></img>
               )} */}
               {/* <div className="w-100 text-center mt-2"></div> */}
-              <Button variant="secondary">Log out</Button>
+              
+          {error && <Alert variant="danger">{error}</Alert>}
+          <strong>Email:</strong>{currentUser.email&&currentUser.email}
+          <Link to="/update-profile" className="btn btn-secondary text-white">Profile</Link>
+              <Button variant="secondary" onClick={handleLogout}>Log out</Button>
             </header>
             <hr />
           </>

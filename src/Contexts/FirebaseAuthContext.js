@@ -15,22 +15,32 @@ const FirebaseAuthProvider = (props) => {
     return auth.createUserWithEmailAndPassword(email, password);
   };
 
-  const login=(email,password)=>{
-      return auth.signInWithEmailAndPassword(email,password);
+  const login = (email, password) => {
+    return auth.signInWithEmailAndPassword(email, password);
+  };
+
+  const logout = () => {
+    return auth.signOut();
+  };
+
+  const resetPassword=(email)=>{
+      return auth.sendPasswordResetEmail(email);
   }
 
   useEffect(() => {
-    const unsubscrive = auth.onAuthStateChanged((user) => {
-        setLoading(false)
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      setLoading(false);
     });
-    return unsubscrive;
+    return unsubscribe;
   }, []);
 
   const value = {
     currentUser,
     login,
-    signup
+    signup,
+    logout,
+    resetPassword
   };
   return (
     <FirebaseAuthContext.Provider value={value}>
