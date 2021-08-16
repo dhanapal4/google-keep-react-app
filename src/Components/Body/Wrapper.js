@@ -7,6 +7,7 @@ import Login from "../Auth/Login";
 import App from "../../App";
 import PrivateRoute from "../Auth/PrivateRoute";
 import ForgotPassword from "../Auth/ForgotPassword";
+import UpdateProfile from "../Auth/UpdateProfile";
 const Wrapper = () => {
   return (
       <div style={{backgroundColor:"rgb(32, 32, 32)"}} >
@@ -14,6 +15,7 @@ const Wrapper = () => {
       <FirebaseAuthProvider>
         <Switch>
           <PrivateRoute exact path="/" component={App} />
+          <PrivateRoute path="/update-profile" component={UpdateProfile} />
           
           {/* <Container
             className="d-flex align-items-center justify-content-center"

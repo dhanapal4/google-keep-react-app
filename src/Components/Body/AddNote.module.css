@@ -10,7 +10,7 @@
     border-radius: 8px;
 }
 
-.addnote input,input::placeholder{
+.addnote input,.addnote input::placeholder{
     background-color: rgb(32, 32, 32);
     border: none;
     padding: 15px;

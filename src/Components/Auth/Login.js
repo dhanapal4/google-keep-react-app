@@ -1,6 +1,6 @@
 import { Alert } from "react-bootstrap";
 import React, { useRef, useState } from "react";
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, Card, Container } from "react-bootstrap";
 import { useFirebaseAuth } from "../../Contexts/FirebaseAuthContext";
 import { Link, useHistory } from "react-router-dom";
 
@@ -26,8 +26,11 @@ export default function Login() {
     setLoading(false);
   };
   return (
-    <>
-      <Card>
+    <Container
+      className="d-flex align-items-center justify-content-center flex-column"
+      style={{ minHeight: "100vh",maxWidth:"50%" }}
+    >
+      <Card className="w-100">
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           {error && <Alert variant="danger">{error}</Alert>}
@@ -58,6 +61,6 @@ export default function Login() {
           Need an account? <Link to="/signup">Sign Up</Link>{" "}
         </h6>
       </div>
-    </>
+    </Container>
   );
 }

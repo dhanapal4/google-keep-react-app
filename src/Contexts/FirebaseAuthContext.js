@@ -27,6 +27,14 @@ const FirebaseAuthProvider = (props) => {
       return auth.sendPasswordResetEmail(email);
   }
 
+  const updateEmail=(email)=>{
+    return currentUser.updateEmail(email);
+  }
+
+  const updatePassword=(password)=>{
+    return currentUser.updatePassword(password);
+  }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -40,7 +48,9 @@ const FirebaseAuthProvider = (props) => {
     login,
     signup,
     logout,
-    resetPassword
+    resetPassword,
+    updateEmail,
+    updatePassword
   };
   return (
     <FirebaseAuthContext.Provider value={value}>
