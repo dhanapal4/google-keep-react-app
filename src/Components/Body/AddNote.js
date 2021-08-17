@@ -1,4 +1,4 @@
-import {useRef,useEffect} from 'react';
+import {useRef,useEffect, useState} from 'react';
 import classes from './AddNote.module.css';
 
 const AddNote=(props)=>{
