@@ -6,7 +6,6 @@ import classes from './UpdateNote.module.css';
 
 const UpdateNote=(props)=>{
     const note=props.viewNote.note;
-    // console.log('clicked...')
     if(!props.viewNote.open){
         return null;
     }

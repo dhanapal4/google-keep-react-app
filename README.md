@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-A Simple Google Keep web app UI Done using ReactJS, HTML & CSS.
+A Simple Google Keep web app UI Clone & Functionality Done using ReactJS, HTML & CSS.
 
 ![image](https://user-images.githubusercontent.com/35224694/128633279-a2dd10e2-e0bf-4290-b95e-b967783066e6.png)
 

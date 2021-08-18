@@ -4,7 +4,6 @@ import { useFirebaseAuth } from "../../Contexts/FirebaseAuthContext";
 //privateroute is just a wrapper around the current route
 export default function PrivateRoute({component:Component,...rest}) {
   const { currentUser } = useFirebaseAuth();
-  console.log(currentUser);
   return (
     <Route
       {...rest}

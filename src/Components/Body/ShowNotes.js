@@ -5,7 +5,7 @@ import UpdateNote from "./UpdateNote";
 
 const ShowNotes = (props) => {
   let taskList = (
-    <p style={{ color: "white" }}>No new notes yet! Add notes to shown here!</p>
+    <p style={{ color: "white" }}>No such new notes yet! Add notes to shown here!</p>
   );
 
   const [viewNote, setViewNote] = useState({
@@ -13,7 +13,6 @@ const ShowNotes = (props) => {
     note: {},
   });
   const onOpenHandler = (note) => {
-    console.log(`${note.title}`);
     setViewNote({ open: true, note: note });
   };
   const onCloseHandler = () => {

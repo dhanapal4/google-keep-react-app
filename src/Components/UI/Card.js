@@ -5,7 +5,6 @@ const Card=(props)=>{
     return(
         <ThemeContext.Consumer>
             {(context)=>{
-                // console.log(context)
 
                 return(
                     <div className={context.isLightTheme?classes.card:classes.cardDark}>{props.children}</div>)

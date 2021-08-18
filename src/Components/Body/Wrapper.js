@@ -1,8 +1,6 @@
 import Signup from "../Auth/signup";
-import { Container } from "react-bootstrap";
 import FirebaseAuthProvider from "../../Contexts/FirebaseAuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MainPage from "../MainPage";
 import Login from "../Auth/Login";
 import App from "../../App";
 import PrivateRoute from "../Auth/PrivateRoute";

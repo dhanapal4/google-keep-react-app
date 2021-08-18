@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
-import { useContext, useState } from "react";
-import { AuthContext } from "../../Contexts/AuthContext";
+import { useState } from "react";
+// import { AuthContext } from "../../Contexts/AuthContext";
 import { ThemeContext } from "../../Contexts/ThemeContext";
 import classes from "./Headers.module.css";
 import { Alert } from "bootstrap";
@@ -10,19 +10,14 @@ import { Link,useHistory } from "react-router-dom";
 const Headers = (props) => {
   const toBeFilteredData = props.data;
   const onChangeHandler = (event) => {
-    console.log(event.target.value);
-    console.log(props.data);
-    var filter = toBeFilteredData.filter((data) =>
+    const filter = toBeFilteredData.filter((data) =>
       data.title.toLowerCase().includes(event.target.value.toLowerCase())
     );
-    console.log(`Filtered :- ${filter.length}`);
-    // if (filter.length === 0) return null;
     props.filteredData(filter);
   };
 
-  const authContext = useContext(AuthContext);
-  console.log(authContext);
-  const { isAuthenticated } = authContext;
+  // const authContext = useContext(AuthContext);
+  // const { isAuthenticated } = authContext;
   const [error,setError]=useState('');
   const {currentUser,logout}=useFirebaseAuth();
   const history=useHistory();
@@ -42,9 +37,6 @@ const Headers = (props) => {
   return (
     <ThemeContext.Consumer>
       {(context) => {
-        // console.log(context);
-        // console.log(`${context.isLightTheme}`);
-        // console.log(`${context.toggleTheme}`);
         return (
           <>
             <header className={classes.headers}>
@@ -61,7 +53,7 @@ const Headers = (props) => {
                   src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
                   alt="Keep logo"
                 ></img>
-                <h2>Keep</h2>
+                <h2>Quick Notes</h2>
               </div>
               <div className={classes.searchbox}>
                 <svg

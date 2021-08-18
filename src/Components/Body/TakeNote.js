@@ -4,7 +4,6 @@ import classes from './TakeNote.module.css';
 const TakeNote = (props) => {
 
 const inputOnClick=()=>{
-  console.log('Onclicked');
   props.onClick();
 }
 
