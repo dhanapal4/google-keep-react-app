@@ -1,22 +1,59 @@
-.card{
-    background-color: rgb(32, 32, 32);
-    width: 30%;
-    border:  1px solid grey;
-    border-radius: 10px;
-    margin: 5px;
-    color: white;
+.card {
+  background-color: rgb(32, 32, 32);
+  width: 30%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 5px;
+  color: white;
 }
-.cardDark{
 
+.cardDark {
+  background-color: rgb(236, 236, 236);
+  width: 30%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 5px;
+  color: black;
+}
+@media (max-width:500px){
+  .card{
+    background-color: rgb(32, 32, 32);
+  width: 40%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 5px;
+  color: white;
+  }
+  .cardDark {
     background-color: rgb(236, 236, 236);
-    width: 30%;
-    border:  1px solid grey;
+    width: 40%;
+    border: 1px solid grey;
     border-radius: 10px;
     margin: 5px;
     color: black;
+  }
 }
 
+@media (orientation:landscape){
+  .card{
+    background-color: rgb(32, 32, 32);
+  width: 20%;
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin: 5px;
+  color: white;
+  }
+  .cardDark {
+    background-color: rgb(236, 236, 236);
+    width: 2 0%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin: 5px;
+    color: black;
+  }
+}
 
-.card:hover{
-    background-color: rgb(97, 97, 97);
+.card:hover {
+  background-color: rgb(97, 97, 97);
+  transform: scale(1.1);
 }
