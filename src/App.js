@@ -7,6 +7,7 @@ import ShowNotes from "./Components/Body/ShowNotes";
 import ThemeContextProvider from "./Contexts/ThemeContext";
 import AuthContextProvider from "./Contexts/AuthContext";
 import { Alert } from "react-bootstrap";
+import useHttp from "./Components/CustomHooks/use-http";
 
 const ACTIONS = {
   SHOW: "show",
@@ -45,7 +46,6 @@ const reducer = (state, action) => {
 function App() {
 
   
-  // const [isAdded,setIsAdded]=useState(false);
   const [visibleAlert, setVisibleAlert]=useState(false);
 
   const [state, dispatchFn] = useReducer(reducer, {
@@ -61,9 +61,6 @@ function App() {
   const closeTakeNote = () => {
     dispatchFn({ type: "hide" });
   };
-  // const addNoteHandler = (note) => {
-  //   dispatchFn({ type: "add", payload: { note: note } });
-  // };
 
   const addNoteFBHandler = async (note) => {
     console.log(note)
@@ -78,13 +75,7 @@ function App() {
         },
       }
     );
-    // setAddedMsg("Added successfully");
-    fetchNotesFBHandler();
     setVisibleAlert(true);
-    // setIsAdded(true);
-    
-    // const data = await response.json();
-    // console.log(data);
   };
 
   useEffect(()=>{
@@ -93,35 +84,31 @@ function App() {
 
   const [notes, setNotes] = useState([]);
 
-  const fetchNotesFBHandler = useCallback(async () => {
-    const response = await fetch(
-      "https://notes-auth-development-default-rtdb.firebaseio.com/notes.json",
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    );
-    const data = await response.json();
-    const notesFromFirebase = [];
-    for (const key in data) {
-      notesFromFirebase.push({
-        id: key,
-        title: data[key].title,
-        body: data[key].body,
-        timestamp: data[key].timestamp,
-        priority: data[key].priority,
-      });
-    }
-    console.log(notesFromFirebase);
+  const {isLoading,error,fetchNotesFBHandler}=useHttp();
+  
+ useEffect(()=>{
+  const responseData=(data)=>{
+   const notesFromFirebase = [];
+     for (const key in data) {
+       notesFromFirebase.push({
+         id: key,
+         title: data[key].title,
+         body: data[key].body,
+         timestamp: data[key].timestamp,
+         priority: data[key].priority,
+       });
+     }
+     console.log(notesFromFirebase);
+ 
+     setNotes(notesFromFirebase);
+  }
+  const configData={
+    url:"https://notes-auth-development-default-rtdb.firebaseio.com/notes.json",
+  }
+  fetchNotesFBHandler(configData,responseData.bind(null)); 
+ },[fetchNotesFBHandler]);
 
-    // dispatchFn({ type: "fetch", payload: { notes: notesFromFirebase } });
-    setNotes(notesFromFirebase);
-  }, []);
-  useEffect(() => {
-    fetchNotesFBHandler();
-  },[fetchNotesFBHandler]);
+
 
   const filteredDataHandler = (data) => {
     if (data.length !== 0) {
@@ -143,7 +130,7 @@ function App() {
           {state.show && (
             <AddNote onClick={closeTakeNote} onAdd={addNoteFBHandler} />
           )}
-          <ShowNotes notes={notes}/>
+          <ShowNotes notes={notes} isLoading={isLoading} error={error}/>
         </ThemeContextProvider>
       </AuthContextProvider>
     </div>
