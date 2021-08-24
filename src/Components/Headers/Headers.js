@@ -34,6 +34,8 @@ const Headers = (props) => {
 
   }
 
+  document.cookie="name=dhanapal";
+
   return (
     <ThemeContext.Consumer>
       {(context) => {

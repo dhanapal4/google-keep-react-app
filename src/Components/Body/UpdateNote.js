@@ -14,13 +14,14 @@ const UpdateNote = (props) => {
     <>
       <div className={classes.overlay} onClick={props.onClose}></div>
       <div className={classes.modal}>
-        <h3>{note.title}</h3>
+        <h4>{note.title}</h4>
+        <hr/>
         <h5>{note.body}</h5>
 
-        <h6>Last updated :{lastUpdateDate}</h6>
         <div className={classes.close}>
           <p onClick={props.onClose}>Close</p>
         </div>
+        <h6>Last updated :{lastUpdateDate}</h6>
       </div>
     </>,
     document.getElementById("portal")

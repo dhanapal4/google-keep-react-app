@@ -1,5 +1,8 @@
 .card {
-  background-color: rgb(32, 32, 32);
+  --hue:0;
+  --saturation:0%;
+  --lightness:13%;
+  background-color: hsl(var(--hue),var(--saturation),var(--lightness));
   width: 30%;
   border: 1px solid grey;
   border-radius: 10px;
@@ -17,7 +20,7 @@
 }
 @media (max-width:500px){
   .card{
-    background-color: rgb(32, 32, 32);
+    background-color: hsl(var(--hue),var(--saturation),var(--lightness));
   width: 40%;
   border: 1px solid grey;
   border-radius: 10px;
@@ -36,7 +39,7 @@
 
 @media (orientation:landscape){
   .card{
-    background-color: rgb(32, 32, 32);
+    background-color: hsl(var(--hue),var(--saturation),var(--lightness));
   width: 20%;
   border: 1px solid grey;
   border-radius: 10px;
@@ -54,6 +57,6 @@
 }
 
 .card:hover {
-  background-color: rgb(97, 97, 97);
+  --lightness:30%;
   transform: scale(1.1);
 }

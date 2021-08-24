@@ -29,9 +29,54 @@
     cursor: pointer;
     
 }
+.addnote-invalid{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid rgb(241, 76, 76);
+    border-radius: 8px;
+}
+
+.addnote-invalid input,.addnote-invalid input::placeholder{
+    background-color: rgb(32, 32, 32);
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    color: rgb(245, 80, 80);
+    font-weight: bold;
+    outline: none;
+}
+
+.addnote-invalid p{
+    display: inline;
+    align-items: center;
+    color: hsl(0, 80%, 40%);
+    font-weight: bolder;
+    padding: 8px;
+    cursor: pointer;
+    
+}
 
 .buttons{
     display: flex;
 justify-content: flex-end;
 padding: 8px;
+}
+
+.disabledButton{
+    color: red;
+}
+
+[tooltip]{
+    position: relative;
+}
+
+[tooltip]:hover::after{
+    content: attr(tooltip);
+    position: absolute;
+    top:80%;
+    left: 40%;
+    right: 0;
+    color: rgb(83, 83, 83);
 }
